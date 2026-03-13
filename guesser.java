@@ -40,5 +40,33 @@ public class guesser {
 		int num = rand.nextInt(randMax - randMin + 1) + randMin;
 		
 		System.out.println(num);
+
+		boolean keepGoing = true;
+		while(keepGoing){
+			turns += 1;
+			System.out.print("Please enter your guess:");
+			String response = userInput.nextLine();
+			int numresponse = Integer.parseInt(response);
+			if (numresponse < num){
+				System.out.println(turns + ") Too Low");
+			} //end if low
+			if (numresponse > num){
+				System.out.println(turns + ") Too High");
+			} //end if high
+			if (numresponse == num){
+				System.out.println(turns + ") Correct");
+				keepGoing = false;
+			} //end if =
+		} //end while
+
+		if (turns < 7){
+			System.out.println("You Win!");
+		} //end if turns win
+		if (turns > 7){
+			System.out.println("You Lose... More than 7 guess attempts");	
+		} //end if turns lose
+		if (turns == 7){
+			System.out.println("Try again... Try and make less than 7 guesses");
+		} //end if turns tie
 	} //end humanGuesser()
 } //end guesser
