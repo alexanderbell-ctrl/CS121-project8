@@ -54,5 +54,29 @@ while keepGoing loop:
 ```
 ## void computerGuesser
 ```
+int upper = 100
+int lower = 1
+int guess = getMean(upper, lower)
+int turns = 0
 
+while keepGoing loop
+    turns += 1
+    ask user for guess response
+    if High
+        upper = guess
+        new guess with getMean
+    if Low
+        lower = guess
+        new guess with getMean
+    if Correct
+        exit loop
+    else
+        "Incorrect Response..."
+```
+## getMean(upper, lower)
+```
+int mean
+temp = lower + upper
+result = temp/2
+return result integer
 ```
