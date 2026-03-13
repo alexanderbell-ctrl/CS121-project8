@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Random;
 
 public class guesser {
 	Scanner userInput = new Scanner(System.in);
@@ -6,18 +7,17 @@ public class guesser {
 	public static void main(String[] args){
 		new guesser();
 	} //end main
-	public void guesser(){
-		String response;
+	public guesser(){
 		boolean keepGoing = true;
 		while (keepGoing) {
-			response = menu();
-			if (response == "0") {
-				
+			String response = menu();
+			if (response.equals("0")) {
+				keepGoing = false;
 			} //end if 0
-			if (response == "1") {
-			
+			if (response.equals("1")) {
+				humanGuesser();
 			} //end if 1
-			if (response == "2") {
+			if (response.equals("2")) {
 			
 			} //end if 2
 		} //end while
@@ -30,4 +30,15 @@ public class guesser {
 		String response = userInput.nextLine();
 		return response;
 	} //end menu
+	public void humanGuesser() {
+		Random rand = new Random();
+		int turns = 0;
+		int guess = 0;
+
+		int randMax = 100;
+		int randMin = 1;
+		int num = rand.nextInt(randMax - randMin + 1) + randMin;
+		
+		System.out.println(num);
+	} //end humanGuesser()
 } //end guesser
