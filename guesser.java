@@ -18,7 +18,7 @@ public class guesser {
 				humanGuesser();
 			} //end if 1
 			if (response.equals("2")) {
-			
+				computerGuesser();
 			} //end if 2
 		} //end while
 	} //end guesser
@@ -69,4 +69,43 @@ public class guesser {
 			System.out.println("Try again... Try and make less than 7 guesses");
 		} //end if turns tie
 	} //end humanGuesser()
+	public void computerGuesser(){
+		int upper = 100;
+		int lower = 1;
+		int guess = getMean(upper, lower);
+		int turns = 0;
+
+		Random rand = new Random();
+		int num = rand.nextInt(upper - lower + 1) + lower;
+
+		boolean keepGoing = true;
+		while(keepGoing) {
+			turns += 1;
+			System.out.println(turns + ") Random Number: " + num + "  |  Computer's Guess: " + guess);
+			System.out.print("Enter (C) for correct, (H)igh for too high, or (L)ow for too low: ");
+			String response = userInput.nextLine();
+
+			if (response.equals("H")){
+				upper = guess;
+				guess = getMean(upper, lower);
+			} //end if high
+			else if (response.equals("L")){
+				lower = guess;
+				guess = getMean(upper, lower);
+			} //end if low
+			else if (response.equals("C")){
+				keepGoing = false;
+			} //end if correct
+			else {
+				System.out.println("You didn't slect a valid option...");
+			} //end else		
+
+		} //end while
+	} //end computerGuesser()
+	public int getMean(int upper, int lower) {
+		int mean;
+		int temp = upper + lower;
+		mean = temp/2;
+		return mean;
+	} //end getMean
 } //end guesser
