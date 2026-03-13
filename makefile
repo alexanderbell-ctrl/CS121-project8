@@ -1,8 +1,8 @@
-Guesser: guesser.java
+guesser.class: guesser.java
 	javac guesser.java
 
 clean:
-	rm Guesser
+	rm guesser.class
 
-run: Guesser
-	./Guesser
+run: guesser.class
+	java guesser
